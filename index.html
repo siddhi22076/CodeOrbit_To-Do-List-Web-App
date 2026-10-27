@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My To-Do List</title>
+  <meta name="description" content="A simple task manager to organize daily activities.">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <main class="app">
+    <!-- Header -->
+    <header class="app-header">
+      <p class="eyebrow">MY PRODUCTIVITY</p>
+      <h1>My To-Do List</h1>
+      <p class="subtitle">Small steps. Big progress.</p>
+    </header>
+
+    <!-- Task Statistics -->
+    <section class="stats" aria-label="Task statistics">
+      <div class="stat-card">
+        <span>Total tasks</span>
+        <strong id="total-count">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Completed</span>
+        <strong id="completed-count">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Pending</span>
+        <strong id="pending-count">0</strong>
+      </div>
+    </section>
+
+    <!-- Add Task Form -->
+    <form id="task-form" class="task-form">
+      <label class="visually-hidden" for="task-input">
+        Enter a task
+      </label>
+
+      <input
+        type="text"
+        id="task-input"
+        placeholder="What do you need to do?"
+        maxlength="200"
+        autocomplete="off"
+        required
+      >
+
+      <button type="submit" class="add-btn">+ Add Task</button>
+    </form>
+
+    <!-- Task Filters -->
+    <section class="task-section">
+      <div class="task-toolbar">
+        <h2>Your Tasks</h2>
+
+        <div class="filters" aria-label="Filter tasks">
+          <button type="button" class="filter-btn active"
+                  data-filter="all" aria-pressed="true">
+            All
+          </button>
+
+          <button type="button" class="filter-btn"
+                  data-filter="active" aria-pressed="false">
+            Active
+          </button>
+
+          <button type="button" class="filter-btn"
+                  data-filter="completed" aria-pressed="false">
+            Completed
+          </button>
+        </div>
+      </div>
+
+      <!-- Tasks are added here by JavaScript -->
+      <ul id="task-list" class="task-list"></ul>
+
+      <p id="empty-message" class="empty-message">
+        No tasks yet. Add your first task!
+      </p>
+
+      <div class="task-footer">
+        <span id="remaining-text">0 tasks remaining</span>
+
+        <button type="button" id="clear-completed" class="clear-btn">
+          Clear completed
+        </button>
+      </div>
+
+      <p id="status-message" class="status-message"
+         role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Stay organized, one task at a time.</p>
+      <p>&copy; <span id="year"></span> My To-Do List</p>
+    </footer>
+  </main>
+
+</body>
+</html>
